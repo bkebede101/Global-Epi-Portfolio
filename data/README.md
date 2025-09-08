@@ -13,8 +13,7 @@ This folder contains tuberculosis (TB) data for analysis and visualization.
   - **Measure:** Mortality (age-standardized rates per 100,000 and all-age deaths)  
   - **Geography:** Global, regional, and national estimates for >200 countries  
   - **Size:** Large dataset (hundreds of thousands of rows across causes)  
-  - ## sources **IHME GBD 2021:** Mortality estimates, 1990–2021 (GBD study collaborators).  
-- [IHME Global Burden of Disease Data](https://www.healthdata.org/research-analysis/gbd-data)
+  - **sources **IHME GBD 2021:** Mortality estimates, 1990–2021 (GBD study collaborators). [IHME Global Burden of Disease Data](https://www.healthdata.org/research-analysis/gbd-data)
 
 ## Processed Data
 
