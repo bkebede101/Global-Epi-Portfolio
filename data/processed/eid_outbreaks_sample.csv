@@ -1,0 +1,37 @@
+pathogen,country,year,cases,deaths,cfr_pct
+Lassa fever,Nigeria,2016,799,49,6.13
+Lassa fever,Ghana,2017,584,99,16.95
+Lassa fever,Guinea,2018,153,21,13.73
+Lassa fever,Brazil,2019,95,12,12.63
+Lassa fever,USA,2020,960,96,10.0
+Lassa fever,Saudi Arabia,2021,500,56,11.2
+Marburg virus disease,Nigeria,2016,924,120,12.99
+Marburg virus disease,Ghana,2017,711,50,7.03
+Marburg virus disease,Guinea,2018,306,59,19.28
+Marburg virus disease,Brazil,2019,316,37,11.71
+Marburg virus disease,USA,2020,801,43,5.37
+Marburg virus disease,Saudi Arabia,2021,932,79,8.48
+Ebola virus disease,Nigeria,2016,940,166,17.66
+Ebola virus disease,Ghana,2017,660,120,18.18
+Ebola virus disease,Guinea,2018,821,128,15.59
+Ebola virus disease,Brazil,2019,514,69,13.42
+Ebola virus disease,USA,2020,280,21,7.5
+Ebola virus disease,Saudi Arabia,2021,767,136,17.73
+Zika virus,Nigeria,2016,331,29,8.76
+Zika virus,Ghana,2017,758,133,17.55
+Zika virus,Guinea,2018,744,103,13.84
+Zika virus,Brazil,2019,433,37,8.55
+Zika virus,USA,2020,126,17,13.49
+Zika virus,Saudi Arabia,2021,143,26,18.18
+SARS-CoV-2,Nigeria,2016,236,31,13.14
+SARS-CoV-2,Ghana,2017,260,49,18.85
+SARS-CoV-2,Guinea,2018,528,75,14.2
+SARS-CoV-2,Brazil,2019,258,51,19.77
+SARS-CoV-2,USA,2020,290,22,7.59
+SARS-CoV-2,Saudi Arabia,2021,183,29,15.85
+MERS-CoV,Nigeria,2016,787,122,15.5
+MERS-CoV,Ghana,2017,395,69,17.47
+MERS-CoV,Guinea,2018,880,74,8.41
+MERS-CoV,Brazil,2019,355,52,14.65
+MERS-CoV,USA,2020,559,35,6.26
+MERS-CoV,Saudi Arabia,2021,76,11,14.47
