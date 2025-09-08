@@ -1,6 +1,6 @@
 # Data Notes
 
-This folder contains data used in the example portfolio.  The `raw/` subfolder is intended for original data downloads (empty in this example); the `processed/` subfolder holds cleaned, tidy tables ready for analysis and visualization.
+This folder contains data used in the example portfolio.  The `raw/` subfolder is intended for original data downloads; the `processed/` subfolder holds cleaned, tidy tables ready for analysis and visualization.
 
 ## Files
 
