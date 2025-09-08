@@ -1,5 +1,38 @@
 # Data Notes
 
+This folder contains tuberculosis (TB) data for analysis and visualization.  
+
+- The `raw/` subfolder holds original downloads (large-scale Excel files).  
+- The `processed/` subfolder contains cleaned extracts focused on TB.  
+
+## Raw Data
+
+- **`raw/IHME_GBD_2021_MORTALITY_1990_2021_SR_TABLE_1_Y2024M04D03.XLSX`**  
+  Original Excel file from the **Institute for Health Metrics and Evaluation (IHME)** Global Burden of Disease (GBD) 2021 study.  
+  - **Coverage:** 1990–2021  
+  - **Measure:** Mortality (age-standardized rates per 100,000 and all-age deaths)  
+  - **Geography:** Global, regional, and national estimates for >200 countries  
+  - **Size:** Large dataset (hundreds of thousands of rows across causes)  
+  - Source: [IHME GBD Results Tool](https://ghdx.healthdata.org/gbd-results-tool)  
+
+## Processed Data
+
+- **`processed/tb_mortality_timeseries.csv`**  
+  Cleaned extract from the IHME raw dataset, filtered to tuberculosis-specific causes.  
+  - **Columns:**  
+    - `location` – Country or region  
+    - `year` – Calendar year (1990–2021)  
+    - `deaths_all_age` – All-age TB deaths  
+    - `mortality_rate_age_std` – Age-standardized TB mortality rate per 100,000  
+    - `lower_bound` / `upper_bound` – Uncertainty interval  
+  - **Use:** This dataset is lightweight and ready for analysis in R, Stata, or Tableau.  
+
+## Sources
+
+- **IHME GBD 2021:** Mortality estimates, 1990–2021 (GBD study collaborators).  
+- [IHME GBD Results Tool](https://ghdx.healthdata.org/gbd-results-tool).
+# Data Notes
+
 This folder contains data used in the example portfolio.  The `raw/` subfolder is intended for original data downloads; the `processed/` subfolder holds cleaned, tidy tables ready for analysis and visualization.
 
 ## Files
