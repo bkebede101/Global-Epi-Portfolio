@@ -1,35 +1,32 @@
-#!/usr/bin/env Rscript
-#
-# Script to process tuberculosis incidence data
-#
-# This example script demonstrates how to ingest WHO TB incidence data and
-# prepare a tidy country–year table with point estimates and uncertainty bounds.
-# In practice, you would download the raw dataset from data.who.int and read
-# population denominators from a separate source.  Here we illustrate using
-# a small sample dataset stored in `data/processed/`.
-
-source("scripts/R/00_utils.R")
-library(readr)
+library(readxl)
 library(dplyr)
+library(readr)
+library(stringr)
 
-# Define file paths
-input_path <- "data/processed/tb_timeseries_sample.csv"  # sample processed data
-output_path <- "data/processed/tb_timeseries.csv"        # final tidy table
+# Extract
+df_raw <- read_excel("data/raw/IHME_GBD_2021_MORTALITY_1990_2021_SR_TABLE_1_Y2024M04D03.XLSX")
 
-# Read the sample data
-tb <- read_csv(input_path, show_col_types = FALSE)
+# Transform
+tb_df <- df_raw %>%
+  filter(Year %in% c(1990, 2000, 2010, 2015, 2021)) %>%
+  filter(Sex == "Both", Metric %in% c("Rate (per 100,000)", "Number")) %>%
+  select(location_name = Location,
+         cause_name = Cause,
+         year = Year,
+         metric = Metric,
+         val = Value,
+         val_low = Lower_bound,
+         val_upp = Upper_bound) %>%
+  pivot_wider(names_from = metric,
+              values_from = c(val, val_low, val_upp),
+              names_glue = "{tolower(metric)}_{.value}") %>%
+  rename(asmr = `rate_(per_100,000)_val`,
+         asmr_low = `rate_(per_100,000)_val_low`,
+         asmr_upp = `rate_(per_100,000)_val_upp`,
+         deaths = `number_val`,
+         deaths_low = `number_val_low`,
+         deaths_upp = `number_val_upp`) %>%
+  arrange(location_name, year, cause_name)
 
-# In a full pipeline, you would read raw WHO data, harmonize country codes,
-# merge with population denominators and compute per‑100k rates.  The sample
-# already includes point estimates and uncertainty bounds, so we simply rename
-# columns for consistency and write the final file.
-tb_processed <- tb %>%
-  rename(
-    incidence_per100k = tb_incidence_per100k,
-    incidence_lower = tb_incidence_per100k_low,
-    incidence_upper = tb_incidence_per100k_upp
-  )
-
-# Write out the tidy table
-write_csv(tb_processed, output_path)
-message("TB incidence data processed and saved to ", output_path)
+# Load
+write_csv(tb_df, "data/processed/tb_mortality_allcountries_1990_2021.csv")
