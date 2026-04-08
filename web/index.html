@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Puzzle Print Pipeline</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <main class="container">
+    <header>
+      <h1>Daily Puzzle → Printable PDF</h1>
+      <p>Paste or upload your daily JSON, then generate an A4 puzzle booklet with solutions at the end.</p>
+    </header>
+
+    <section class="card">
+      <h2>1) Input JSON</h2>
+      <div class="row">
+        <button id="load-template">Load Template</button>
+        <label class="file-btn">
+          Upload JSON
+          <input id="file-input" type="file" accept="application/json" />
+        </label>
+      </div>
+      <textarea id="json-input" spellcheck="false"></textarea>
+    </section>
+
+    <section class="card">
+      <h2>2) Generate</h2>
+      <div class="row">
+        <button id="generate">Generate PDF</button>
+        <span id="status"></span>
+      </div>
+      <p class="note">Output: <code>daily_booklet_YYYY-MM-DD.pdf</code> download in your browser.</p>
+    </section>
+
+    <section class="card legal">
+      <h2>Personal-use note</h2>
+      <p>This tool is intended for personal-use print workflows. Puzzle ownership remains with original sources (e.g., NYT).</p>
+    </section>
+  </main>
+
+  <script>
+    const input = document.getElementById('json-input');
+    const fileInput = document.getElementById('file-input');
+    const statusEl = document.getElementById('status');
+
+    document.getElementById('load-template').addEventListener('click', async () => {
+      statusEl.textContent = 'Loading template...';
+      const res = await fetch('/template');
+      const template = await res.json();
+      input.value = JSON.stringify(template, null, 2);
+      statusEl.textContent = 'Template loaded';
+    });
+
+    fileInput.addEventListener('change', async (e) => {
+      const file = e.target.files[0];
+      if (!file) return;
+      const text = await file.text();
+      input.value = text;
+      statusEl.textContent = `Loaded ${file.name}`;
+    });
+
+    document.getElementById('generate').addEventListener('click', async () => {
+      statusEl.textContent = 'Generating PDF...';
+      let parsed;
+      try {
+        parsed = JSON.parse(input.value);
+      } catch (err) {
+        statusEl.textContent = `Invalid JSON: ${err.message}`;
+        return;
+      }
+
+      const res = await fetch('/generate', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(parsed)
+      });
+
+      if (!res.ok) {
+        const msg = await res.text();
+        statusEl.textContent = `Error: ${msg}`;
+        return;
+      }
+
+      const blob = await res.blob();
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      const date = parsed.date || 'today';
+      a.href = url;
+      a.download = `daily_booklet_${date}.pdf`;
+      a.click();
+      URL.revokeObjectURL(url);
+      statusEl.textContent = 'PDF generated and downloaded';
+    });
+  </script>
+</body>
+</html>

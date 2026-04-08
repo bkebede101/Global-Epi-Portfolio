@@ -1,0 +1,73 @@
+{
+  "date": "2026-04-08",
+  "source": "NYT",
+  "wordle": {
+    "answer_length": 5,
+    "max_rows": 6,
+    "allowed_guesses": [],
+    "solution": "CRANE"
+  },
+  "sudoku": {
+    "grid": [
+      [5, 3, 0, 0, 7, 0, 0, 0, 0],
+      [6, 0, 0, 1, 9, 5, 0, 0, 0],
+      [0, 9, 8, 0, 0, 0, 0, 6, 0],
+      [8, 0, 0, 0, 6, 0, 0, 0, 3],
+      [4, 0, 0, 8, 0, 3, 0, 0, 1],
+      [7, 0, 0, 0, 2, 0, 0, 0, 6],
+      [0, 6, 0, 0, 0, 0, 2, 8, 0],
+      [0, 0, 0, 4, 1, 9, 0, 0, 5],
+      [0, 0, 0, 0, 8, 0, 0, 7, 9]
+    ],
+    "solution": [
+      [5, 3, 4, 6, 7, 8, 9, 1, 2],
+      [6, 7, 2, 1, 9, 5, 3, 4, 8],
+      [1, 9, 8, 3, 4, 2, 5, 6, 7],
+      [8, 5, 9, 7, 6, 1, 4, 2, 3],
+      [4, 2, 6, 8, 5, 3, 7, 9, 1],
+      [7, 1, 3, 9, 2, 4, 8, 5, 6],
+      [9, 6, 1, 5, 3, 7, 2, 8, 4],
+      [2, 8, 7, 4, 1, 9, 6, 3, 5],
+      [3, 4, 5, 2, 8, 6, 1, 7, 9]
+    ]
+  },
+  "crossword": {
+    "rows": 5,
+    "cols": 5,
+    "blocked": [
+      [false, false, true, false, false],
+      [false, false, false, false, false],
+      [true, false, false, false, true],
+      [false, false, false, false, false],
+      [false, false, true, false, false]
+    ],
+    "numbering": [
+      [1, 2, 0, 3, 4],
+      [5, 0, 6, 0, 0],
+      [0, 7, 0, 0, 0],
+      [8, 0, 0, 0, 9],
+      [10, 0, 0, 11, 0]
+    ],
+    "across_clues": [
+      "1. Sample across clue",
+      "5. Another across clue"
+    ],
+    "down_clues": [
+      "1. Sample down clue",
+      "2. Another down clue"
+    ],
+    "solution_grid": [
+      ["A", "R", "", "T", "E"],
+      ["S", "T", "A", "R", "S"],
+      ["", "A", "R", "T", ""],
+      ["C", "L", "U", "E", "S"],
+      ["I", "N", "", "K", "Y"]
+    ]
+  },
+  "spelling": {
+    "center": "A",
+    "outer": ["B", "C", "D", "E", "F", "G"],
+    "pangrams": ["DECAF"],
+    "answers": ["CAGE", "FACE", "DECAF"]
+  }
+}
