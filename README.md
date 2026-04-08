@@ -42,6 +42,15 @@ python puzzle_booklet.py init-template --output examples/daily_input.json
 python puzzle_booklet.py build --input examples/daily_input.json --output out/daily_booklet.pdf
 ```
 
+
+## One-click Windows usage
+
+If you prefer not to run terminal commands manually:
+
+1. Double-click `setup_windows.bat` (first-time setup).
+2. Edit `examples\daily_input.json` with that day's puzzle values.
+3. Double-click `generate_daily_pdf.bat` to produce `out\daily_booklet.pdf`.
+
 ## Windows daily automation (Task Scheduler)
 
 Use a scheduled task to run once daily.
