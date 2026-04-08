@@ -18,6 +18,23 @@ This repository now includes a **manual-first daily booklet generator** to conve
 - `puzzle_booklet.py`: CLI tool that reads JSON input and builds a PDF.
 - `requirements.txt`: Python dependencies.
 - `examples/daily_input.json`: Starter daily input template.
+- `web_app.py`: Local website server to generate PDFs visually.
+- `web/`: Front-end files (HTML/CSS) for the visual pipeline UI.
+- `run_web_app.bat`: One-click launcher for the website UI on Windows.
+
+
+## Visual website workflow (recommended)
+
+Start a local web app and use a browser interface instead of the terminal:
+
+```bash
+python web_app.py
+```
+
+Then open `http://127.0.0.1:8080` and:
+1. Click **Load Template** (or upload your own JSON).
+2. Fill puzzle content.
+3. Click **Generate PDF** to download the print-ready booklet.
 
 ## Quick Start
 
@@ -48,8 +65,8 @@ python puzzle_booklet.py build --input examples/daily_input.json --output out/da
 If you prefer not to run terminal commands manually:
 
 1. Double-click `setup_windows.bat` (first-time setup).
-2. Edit `examples\daily_input.json` with that day's puzzle values.
-3. Double-click `generate_daily_pdf.bat` to produce `out\daily_booklet.pdf`.
+2. For website mode, double-click `run_web_app.bat` and use `http://127.0.0.1:8080`.
+3. For direct PDF mode, edit `examples\daily_input.json` and double-click `generate_daily_pdf.bat`.
 
 ## Windows daily automation (Task Scheduler)
 
